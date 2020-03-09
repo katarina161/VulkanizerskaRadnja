@@ -4,10 +4,27 @@ import java.util.LinkedList;
 
 import gume.AutoGuma;
 
+/**
+ * Sadrzi listu guma i metode za dodavanje nove gume u tu listu i 
+ * pronalazenje gume u listi
+ * 
+ * @author Katarina Novakovic
+ *
+ */
 public class VulkanizerskaRadnja {
 
+	/**
+	 * Lista guma (objekata klase AutoGuma)
+	 */
 	private LinkedList<AutoGuma> gume = new LinkedList<AutoGuma>();
 
+	/**
+	 * Dodaje novu gumu u listu guma.
+	 * 
+	 * @param a Nova guma koja se dodaje u kistu guma.
+	 * @throws java.lang.NullPointerException Ako je prosledjena null vrednost.
+	 * @throws java.lang.RuntimeException Ako u listi guma vec postoji ista takva guma.
+	 */
 	public void dodajGumu(AutoGuma a) {
 		if (a == null)
 			throw new NullPointerException("Guma ne sme biti null");
@@ -16,6 +33,13 @@ public class VulkanizerskaRadnja {
 		gume.addFirst(a);
 	}
 
+	/**
+	 * Pronalazi gume u Vulkanizerskoj radnji na osnovu zadatog kriterijuma.
+	 * 
+	 * @param markaModel Marka i model gume kao kriterijum pretrage.
+	 * @return Lista guma ciji marka i model odgovaraju proledjenoj vrednosti ili
+	 * null ako je prosledjena null vrednost.
+	 */
 	public LinkedList<AutoGuma> pronadjiGumu(String markaModel) {
 		if (markaModel == null)
 			return null;
