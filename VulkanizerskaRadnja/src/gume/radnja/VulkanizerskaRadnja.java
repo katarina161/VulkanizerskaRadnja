@@ -17,6 +17,15 @@ public class VulkanizerskaRadnja {
 	 * Lista guma (objekata klase AutoGuma)
 	 */
 	private LinkedList<AutoGuma> gume = new LinkedList<AutoGuma>();
+	
+	/**
+	 * Vraca listu sa gumama
+	 * 
+	 * @return Lista guma.
+	 */
+	public LinkedList<AutoGuma> getGume() {
+		return gume;
+	}
 
 	/**
 	 * Dodaje novu gumu u listu guma.
