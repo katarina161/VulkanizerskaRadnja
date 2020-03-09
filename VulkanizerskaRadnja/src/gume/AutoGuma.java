@@ -76,7 +76,7 @@ public class AutoGuma {
 	 * </ul>
 	 */
 	public void setPrecnik(int precnik) {
-		if (precnik < 13 && precnik > 22)
+		if (precnik < 13 || precnik > 22)
 			throw new RuntimeException("Precnik van opsega");
 		this.precnik = precnik;
 	}
@@ -102,7 +102,7 @@ public class AutoGuma {
 	 * </ul> 
 	 */
 	public void setSirina(int sirina) {
-		if (sirina < 135 && sirina > 355)
+		if (sirina < 135 || sirina > 355)
 			throw new RuntimeException("Sirina van opsega");
 		this.sirina = sirina;
 	}
@@ -134,7 +134,7 @@ public class AutoGuma {
 	}
 
 	/**
-	 * Vraca prezentaciju klase preko stringa.
+	 * Vraca formatiran tekst koji sadrzi sve atribute klase.
 	 * 
 	 * @return String koji sadrzi naziv klase, kao i nazive i 
 	 * vrednosti svih atributa klase.
