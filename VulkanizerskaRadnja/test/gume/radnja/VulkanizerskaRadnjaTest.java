@@ -1,6 +1,10 @@
 package gume.radnja;
 
-import static org.junit.Assert.fail;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
+import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
@@ -56,10 +60,70 @@ public class VulkanizerskaRadnjaTest {
 		radnja.dodajGumu(guma1);
 		radnja.dodajGumu(guma1);
 	}
+	
+	@Test
+	public void testDodajGumu() {
+		radnja.dodajGumu(guma1);
+		
+		List<AutoGuma> gume = radnja.getGume();
+		
+		assertTrue(gume.size() == 1);
+		assertEquals(guma1, gume.get(0));
+	}
+	
+	@Test
+	public void testDodajGumu2() {
+		radnja.dodajGumu(guma1);
+		radnja.dodajGumu(guma2);
+		
+		List<AutoGuma> gume = radnja.getGume();
+		
+		assertTrue(gume.size() == 2);
+		assertEquals(guma1, gume.get(1));
+		assertEquals(guma2, gume.get(0));
+	}
 
 	@Test
-	public void testPronadjiGumu() {
-		fail("Not yet implemented");
+	public void testPronadjiGumuNull() {
+		List<AutoGuma> rezultat = radnja.pronadjiGumu(null);
+		
+		assertNull(rezultat);
+	}
+	
+	@Test
+	public void testPronadjiGumuNemaUListi() {
+		radnja.dodajGumu(guma1);
+		radnja.dodajGumu(guma2);
+		radnja.dodajGumu(guma3);
+		
+		List<AutoGuma> rezultat = radnja.pronadjiGumu("Tigar - letnje gume");
+		
+		assertTrue(rezultat.isEmpty());
+	}
+	
+	@Test
+	public void testPronadjiGumuJednaUListi() {
+		radnja.dodajGumu(guma1);
+		radnja.dodajGumu(guma2);
+		radnja.dodajGumu(guma3);
+		
+		List<AutoGuma> rezultat = radnja.pronadjiGumu("Michelin - zimske gume");
+		
+		assertTrue(rezultat.size() == 1);
+		assertEquals(guma3, rezultat.get(0));
+	}
+	
+	@Test
+	public void testPronadjiGumuViseUListi() {
+		radnja.dodajGumu(guma1);
+		radnja.dodajGumu(guma2);
+		radnja.dodajGumu(guma3);
+		
+		List<AutoGuma> rezultat = radnja.pronadjiGumu("Sava - zimske gume");
+		
+		assertTrue(rezultat.size() == 2);
+		assertEquals(guma2, rezultat.get(0));
+		assertEquals(guma1, rezultat.get(1));
 	}
 
 }
