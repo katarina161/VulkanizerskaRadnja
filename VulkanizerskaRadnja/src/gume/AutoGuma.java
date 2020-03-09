@@ -5,7 +5,7 @@ package gume;
  * get i set metode, toString i equals metode.
  * 
  * @author Katarina Novakovic
- *
+ * @version 1.0.0
  */
 public class AutoGuma {
 	

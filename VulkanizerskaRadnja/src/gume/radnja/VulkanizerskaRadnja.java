@@ -9,6 +9,7 @@ import gume.AutoGuma;
  * pronalazenje gume u listi
  * 
  * @author Katarina Novakovic
+ * @version 1.0.1
  *
  */
 public class VulkanizerskaRadnja {
@@ -30,7 +31,7 @@ public class VulkanizerskaRadnja {
 	/**
 	 * Dodaje novu gumu u listu guma.
 	 * 
-	 * @param a Nova guma koja se dodaje u kistu guma.
+	 * @param a Nova guma koja se dodaje u listu guma.
 	 * @throws java.lang.NullPointerException Ako je prosledjena null vrednost.
 	 * @throws java.lang.RuntimeException Ako u listi guma vec postoji ista takva guma.
 	 */
